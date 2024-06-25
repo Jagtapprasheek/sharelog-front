@@ -2,7 +2,7 @@
  * This reusable component is verticle navar 
  * @returns 
  */
-const Vernavbar = () => {
+const VerticalNavbar = () => {
     return (
       <>
         <p className="text-3xl font-bold underline">Verticle Navbar</p>
@@ -10,5 +10,5 @@ const Vernavbar = () => {
     );
   };
   
-  export default Vernavbar;
+  export default VerticalNavbar;
   

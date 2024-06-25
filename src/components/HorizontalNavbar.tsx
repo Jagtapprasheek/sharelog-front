@@ -2,7 +2,7 @@
  * This reusable component is horizontal navar 
  * @returns 
  */
-const Hornavbar = () => {
+const HorizontalNavbar = () => {
   return (
     <>
       <p className="text-3xl font-bold underline">Horizontal Navbar</p>
@@ -10,4 +10,4 @@ const Hornavbar = () => {
   );
 };
 
-export default Hornavbar;
+export default HorizontalNavbar;
