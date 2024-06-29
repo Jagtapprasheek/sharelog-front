@@ -1,8 +1,8 @@
 import ReactDOM from 'react-dom/client'
 import React from 'react'
 /**
- * React redux imports 
- */
+* React redux imports 
+*/
 import { Provider } from 'react-redux'
 import store from './store'
 
