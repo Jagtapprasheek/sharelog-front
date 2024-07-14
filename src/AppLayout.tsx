@@ -1,21 +1,25 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import VerticalNavbar from './components/VerticalNavbar';
-import HorizontalNavbar from './components/HorizontalNavbar';
+import { Outlet } from 'react-router-dom';
 
-interface AppLayoutProps {
-    children: ReactNode;
-}
+// You can define props if needed later
+// interface AppLayoutProps {
+//     children?: React.ReactNode;
+// }
 
-const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
+const AppLayout: React.FC = () => {
+    const isAuthenticated = true;
+
     return (
-        <div className="app-layout">
-            <HorizontalNavbar />
-            <div className="main-content">
-                <VerticalNavbar />
-                <div className="content">
-                    {children}
-                </div>
-            </div>
+        <div className="grid grid-cols-12 h-full">
+            {isAuthenticated && (
+                <aside className="col-span-2 bg-gray-900 h-full">
+                    <VerticalNavbar />
+                </aside>
+            )}
+            <main className="col-span-10 bg-slate-800 w-full h-full">
+                <Outlet />
+            </main>
         </div>
     );
 };
