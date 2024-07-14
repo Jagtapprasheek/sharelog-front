@@ -16,9 +16,9 @@ const VerticalNavbar = () => {
     return sessionStorage.getItem('selectedTab') || 'dashboard';
   });
 
-  const handleTabClick = (tab : string) => {
+  const handleTabClick = (tab: string) => {
     setSelectedTab(tab);
-    sessionStorage.setItem('selectedTab', tab); 
+    sessionStorage.setItem('selectedTab', tab);
   };
 
   useEffect(() => {
@@ -28,7 +28,7 @@ const VerticalNavbar = () => {
       setSelectedTab(savedTab);
     }
   }, []);
-  
+
 
   return (
     <div className="side-nav">
@@ -36,57 +36,66 @@ const VerticalNavbar = () => {
         Sharelog
       </div>
       <ul className="mt-3 text-white flex flex-col justify-center items-start gap-y-3 w-full">
-        <li
+
+        <Link to="/dashboard"
           className={`p-3 ps-5 ${selectedTab === 'dashboard' ? 'bg-share-green' : 'bg-transparent'} rounded-lg w-full `}
-          onClick={() => handleTabClick('dashboard')}
-        >
-          <Link to="/dashboard" className="flex"><img className="me-2" src="src/assets/navbar/dashboard.svg" />Dashboard</Link>
-        </li>
+          onClick={() => handleTabClick('dashboard')}>
+          <li className="flex">
+            <img className="me-2" src="src/assets/navbar/dashboard.svg" />Dashboard
+          </li>
+        </Link>
 
-        <li
-          className={`p-3 ps-5 ${selectedTab === 'portfolio' ? 'bg-share-green' : 'bg-transparent'} rounded-lg w-full `}
-          onClick={() => handleTabClick('portfolio')}
-        >
-          <Link to="/Portfolio" className="flex" ><img className="me-2" src="src/assets/navbar/portfolio.svg" />Portfolio</Link>
-        </li>
 
-        <li
-          className={`p-3 ps-5 ${selectedTab === 'report' ? 'bg-share-green' : 'bg-transparent'} rounded-lg w-full `}
-          onClick={() => handleTabClick('report')}
-        >
-          <Link to="/Report" className="flex"><img className="me-2" src="src/assets/navbar/report.svg" />Report</Link>
-        </li>
+        <Link to="/Portfolio" className={`p-3 ps-5 ${selectedTab === 'portfolio' ? 'bg-share-green' : 'bg-transparent'} rounded-lg w-full `}
+          onClick={() => handleTabClick('portfolio')}>
+          <li className="flex">
+            <img className="me-2" src="src/assets/navbar/portfolio.svg" />Portfolio
+          </li>
+        </Link>
 
-        <li
-          className={`p-3 ps-5 ${selectedTab === 'strategy' ? 'bg-share-green' : 'bg-transparent'} rounded-lg w-full `}
-          onClick={() => handleTabClick('strategy')}
-        >
-          <Link to="/Strategy" className="flex"><img className="me-2" src="src/assets/navbar/Strategy.svg" />Strategy</Link>
-        </li>
-        <li
-          className={`p-3 ps-5 ${selectedTab === 'watchlist' ? 'bg-share-green' : 'bg-transparent'} rounded-lg w-full `}
+        <Link to="/Report" className={`p-3 ps-5 ${selectedTab === 'report' ? 'bg-share-green' : 'bg-transparent'} rounded-lg w-full `}
+          onClick={() => handleTabClick('report')}>
+          <li className="flex">
+            <img className="me-2" src="src/assets/navbar/report.svg" />Report
+          </li>
+        </Link>
+
+        <Link to="/Strategy" className={`p-3 ps-5 ${selectedTab === 'strategy' ? 'bg-share-green' : 'bg-transparent'} rounded-lg w-full `}
+          onClick={() => handleTabClick('strategy')}>
+          <li className="flex" >
+            <img className="me-2" src="src/assets/navbar/Strategy.svg" />Strategy
+          </li>
+        </Link>
+
+        <Link to="/Watchlist" className={`p-3 ps-5 ${selectedTab === 'watchlist' ? 'bg-share-green' : 'bg-transparent'} rounded-lg w-full `}
           onClick={() => handleTabClick('watchlist')}
         >
-          <Link to="/Watchlist" className="flex"><img className="me-2" src="src/assets/navbar/watchlist.svg" />Watch List</Link>
-        </li>
-        <li
-          className={`p-3 ps-5 ${selectedTab === 'categroies' ? 'bg-share-green' : 'bg-transparent'} rounded-lg w-full `}
-          onClick={() => handleTabClick('categroies')}
-        >
-          <Link to="/Categroies" className="flex"><img className="me-2" src="src/assets/navbar/Categories.svg" />Categroies</Link>
-        </li>
-        <li
+          <li className="flex">
+            <img className="me-2" src="src/assets/navbar/watchlist.svg" />Watch List
+          </li>
+        </Link>
+
+        <Link to="/Categroies" className={`p-3 ps-5 ${selectedTab === 'categroies' ? 'bg-share-green' : 'bg-transparent'} rounded-lg w-full `}
+          onClick={() => handleTabClick('categroies')}>
+          <li className="flex">
+            <img className="me-2" src="src/assets/navbar/Categories.svg" />Categroies
+          </li>
+        </Link>
+
+        <Link to="/community"
           className={`p-3 ps-5 ${selectedTab === 'community' ? 'bg-share-green' : 'bg-transparent'} rounded-lg w-full `}
-          onClick={() => handleTabClick('community')}
-        >
-          <Link to="/community" className="flex"><img className="me-2" src="src/assets/navbar/portfolio.svg" />Community</Link>
-        </li>
-        <li
-          className={`p-3 ps-5 ${selectedTab === 'profile' ? 'bg-share-green' : 'bg-transparent'} rounded-lg w-full `}
-          onClick={() => handleTabClick('profile')}
-        >
-          <Link to="/Profile" className="flex"><img className="me-2" src="src/assets/navbar/Profile.svg" /> Profile</Link>
-        </li>
+          onClick={() => handleTabClick('community')}>
+          <li className="flex">
+            <img className="me-2" src="src/assets/navbar/portfolio.svg" />Community
+          </li>
+        </Link>
+
+        <Link to="/Profile" className={`p-3 ps-5 ${selectedTab === 'profile' ? 'bg-share-green' : 'bg-transparent'} rounded-lg w-full `}
+          onClick={() => handleTabClick('profile')}>
+          <li className="flex">
+            <img className="me-2" src="src/assets/navbar/Profile.svg" /> Profile
+          </li>
+        </Link>
       </ul>
     </div>
   );
