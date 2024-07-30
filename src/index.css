@@ -3,12 +3,26 @@
 @tailwind utilities;
 
 
+:root{
+    --share-green:#3BDA89;
+}
 .app-layout{
     display: flex;
     align-items: center;
     justify-content: start;
     height: 100vh;
 }
+.partial-border-right::after {
+    content: '';
+    position: absolute;
+    top: 10%; /* Adjust this value to make the border 80% */
+    bottom: 10%; /* Adjust this value to make the border 80% */
+    right: 0;
+    width: 4px; /* Adjust this value to change the border thickness */
+    background-color: var(--share-green); /* Inherits the text color */
+    border-radius: 1rem 1rem;
+  }
+
 
 .navBar{
     width: 15vw;

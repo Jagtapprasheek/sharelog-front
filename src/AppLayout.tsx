@@ -2,22 +2,17 @@ import React from 'react';
 import VerticalNavbar from './components/VerticalNavbar';
 import { Outlet } from 'react-router-dom';
 
-// You can define props if needed later
-// interface AppLayoutProps {
-//     children?: React.ReactNode;
-// }
-
 const AppLayout: React.FC = () => {
-    const isAuthenticated = true;
+    const isAuthenticated = false;
 
     return (
-        <div className="grid grid-cols-12 h-full">
+        <div className="h-full min-h-screen grid" style={{ gridTemplateColumns: isAuthenticated ? '1fr 4fr' : '1fr' }}>
             {isAuthenticated && (
-                <aside className="col-span-2 bg-gray-900 h-full">
+                <aside className="bg-gray-900 h-full">
                     <VerticalNavbar />
                 </aside>
             )}
-            <main className="col-span-10 bg-slate-800 w-full h-full">
+            <main className="bg-slate-800 w-full h-full">
                 <Outlet />
             </main>
         </div>
