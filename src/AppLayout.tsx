@@ -4,31 +4,36 @@ import { Outlet } from 'react-router-dom';
 import HorizontalNavbar from './components/HorizontalNavbar';
 
 /**
- * This is applayout file which is used to structured and includes the navbar 
- * and we need not to add the navbar bar in every file 
- * @returns 
+ * This is AppLayout file which is used to structure and include the navbar 
+ * so we don't need to add the navbar in every file.
  */
 const AppLayout: React.FC = () => {
     const userName = "shyam";
+    
     /**
-     * @{isAuthenticated} is to hide the verticle and horizontal navbars 
+     * isAuthenticated is used to conditionally show the vertical and horizontal navbars.
      */
     const isAuthenticated = true;
 
     return (
-        <div className="h-full min-h-screen grid" style={{ gridTemplateColumns: isAuthenticated ? '1fr 4fr' : '1fr' }}>
+        <div className="h-screen grid" style={{ gridTemplateColumns: isAuthenticated ? '1fr 4fr' : '1fr' }}>
+            {/* Vertical Navbar */}
             {isAuthenticated && (
-                <aside className="bg-gray-900 h-full">
+                <aside className="bg-gray-900 h-screen sticky top-0">
                     <VerticalNavbar />
                 </aside>
             )}
-            <main className="bg-slate-800 w-full h-full flex flex-col">
+            
+            {/* Main content */}
+            <main className="bg-slate-800 w-full h-screen flex flex-col">
                 {isAuthenticated && (
-                    <HorizontalNavbar userName={userName} />
+                    <div className="sticky top-0 z-50 p-3">
+                        <HorizontalNavbar userName={userName} />
+                    </div>
                 )}
-                
-                {/**style componnet is used here so we can add padding after the dahboard or logged in */}
-                <div className="flex-1" style={{ padding: isAuthenticated ? '1' : '0' }}>
+
+                {/* Main content area */}
+                <div className="flex-1 overflow-y-auto">
                     <Outlet />
                 </div>
             </main>
