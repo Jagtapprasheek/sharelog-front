@@ -1,3 +1,8 @@
+import profilePic from '../../../../public/profile-pic.jpg'
+import { CiLogout } from "react-icons/ci";
+import { CiCircleAlert } from "react-icons/ci";
+
+
 interface InfoCardProps {
     title: string;
     content: string;
@@ -7,8 +12,8 @@ interface InfoCardProps {
 const Profile : React.FC = () => {
     return (
         <div className="container-fluid h-full">
-          <div className="flex flex-col-reverse sm:flex-row pb-5">
-            <div className="md:w-3/12 md:mx-auto">
+          <div className="flex flex-col-reverse sm:flex-row pb-5 ">
+            {/* <div className="md:w-3/12 md:mx-auto">
               <div className="text-center">
                 <img src="Profile_pic.webp" alt="" className="w-48 rounded-full mx-auto" />
                 <h3 className="mt-4 font-sans">Hella Johanson</h3>
@@ -25,34 +30,48 @@ const Profile : React.FC = () => {
                   <button className="mt-4 bg-orange-600 text-white px-4 py-2 rounded-lg" type="submit">Sign Out</button>
                 </div>
               </div>
-            </div>
+            </div> */}
             
             <div className="md:w-8/12 md:mx-auto">
-              <div className="px-5">
-                <h1>Personal Information</h1>
-                <p className="text-lg text-gray-600">
-                  Below are your personal details including phone number, email etc.
-                </p>
+              <div className="px-5 flex w-full flex-col items-center justify-center">
+                {/* <h1>Personal Information</h1> */}
+                <img src={profilePic} alt="Profile-Logo" className="w-1/4 h-1/4 rounded-full" />
+
+                {/* <label for="cars">Choose a car:</label> */}
+
+                  <select name="cars" id="cars" className='bg-slate-900 p-1 text-white mt-10 mb-5 rounded-xl'>
+                    <option value="volvo">Edit Profile</option>
+                    <option value="volvo">Volvo</option>
+                    <option value="saab">Saab</option>
+                    <option value="mercedes">Mercedes</option>
+                    <option value="audi">Audi</option>
+                  </select> 
               </div>
     
-              <div className="flex flex-wrap">
-                <InfoCard title="Full Name" content="Hella Johanson" />
-                <InfoCard title="Date of Birth" content="19-September-1985" />
-                <InfoCard title="Email" content="h.johanson@sharelog.com" />
-                <InfoCard title="Phone" content="(+1) 010-0980-789" />
-                <InfoCard title="Pan Detail" content="PQR###RWW" />
-                <InfoCard title="Address" content="21, Landburg Steet, Wiscosin, United States." />
+              <div className="flex flex-wrap justify-center items-center">
+                <InfoCard title="Account" />
+                <InfoCard title="Security"  />
+                <InfoCard title="Cards"  />
+                <InfoCard title="Notification" />
+                <InfoCard title="Backup" />
+                <InfoCard title="Help"  />
               </div>
+
+              <div className='flex justify-center items-center gap-16 text-white mt-5'>
+              
+                <a href="#"> <CiLogout />  </a> <span>LogOut</span>
+                <a href="#"> <CiCircleAlert /> </a> <span>Remove Account</span>
+              </div>
+
             </div>
           </div>
         </div>
       );
   };
   
-  const InfoCard:React.FC<InfoCardProps>= ({ title , content }) => (
-    <div className="w-full md:w-5/12 m-2 p-3 bg-white shadow rounded-lg">
-      <h6 className="pl-3">{title}</h6>
-      <h6 className="pl-3 text-gray-600">{content}</h6>
+  const InfoCard:React.FC<InfoCardProps>= ({ title}) => (
+    <div className="md:w-4/12 mb-5 mr-10 p-10 bg-slate-900 text-white shadow rounded-2xl w-[70px]">
+      <h6 className="pl-3 ">{title}</h6>
     </div>
   );
 

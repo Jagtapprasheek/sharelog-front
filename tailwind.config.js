@@ -8,6 +8,7 @@ export default {
     extend: {
       colors: {
         'share-green': '#3BDA89',
+        customBg: 'rgb(46, 43, 53)',
       },
     },
   },
