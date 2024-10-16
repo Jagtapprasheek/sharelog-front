@@ -1,5 +1,6 @@
 import ReactDOM from 'react-dom/client';
 import React from 'react';
+import "./App.css";
 
 /**
  * React redux imports 
@@ -22,6 +23,9 @@ import Profile from './modules/core/components/Profile.tsx';
 import Watchlist from './modules/core/components/Watchlist.tsx';
 import Categories from './modules/core/components/Categroies.tsx';
 import Report from './modules/core/components/Report.tsx';
+import Report1 from './modules/core/components/Report1.tsx';
+import Report2 from './modules/core/components/Report2.tsx';
+import Report3 from './modules/core/components/Report3.tsx';
 // import { ErrorPage } from "./routes/error-page.jsx";
 
 // react router imports
@@ -72,6 +76,18 @@ const router = createBrowserRouter([
         element: <Report />,
       },
       {
+        path: "Report/report1",
+        element: <Report1 />,
+      },
+      {
+        path: "Report/report2",
+        element: <Report2 />,
+      },
+      {
+        path: "Report/report3",
+        element: <Report3 />,
+      },
+      {
         path: "Profile",
         element: <Profile />,
       },
@@ -83,6 +99,7 @@ const router = createBrowserRouter([
         path: "Categories",
         element: <Categories />,
       },
+
     ]
   }
 ]);
